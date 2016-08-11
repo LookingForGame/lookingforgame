@@ -3,7 +3,9 @@
 module.exports = function(app) {
   app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
 
-    if (auth.isSignedIn()) $location.path('/');
+    if (auth.isSignedIn()) {
+      // $window.location = '/'
+    }
     $scope.errors = [];
     $scope.authSubmit = function(user) {
       if (user.email) { //was user.password_confirmation
@@ -14,9 +16,12 @@ module.exports = function(app) {
             });
           }
 
-          $location.path('/');
+          $window.location = '/'
         })
-      } else {
+      }
+    };
+
+    $scope.login = function(user) {
         auth.signIn(user, function(err) {
           if (err) {
             return $scope.errors.push({
@@ -24,16 +29,19 @@ module.exports = function(app) {
             });
           }
 
-          $location.path('/');
+          $window.location = '/'
         });
-      }
-    };
-    $scope.logout = auth.logout;
+    }
+    $scope.logout = function() {
+      auth.logout();
+      $window.location = '/'
+
+    }
 
     $scope.reloadPage = function() {
-      $timeout(function() {
-        $window.location.reload();
-      }, 200);
+      // $timeout(function() {
+      //   $window.location.reload();
+      // }, 200);
     };
   }]);
 };
