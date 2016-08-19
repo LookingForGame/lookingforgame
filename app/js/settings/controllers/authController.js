@@ -11,6 +11,7 @@ module.exports = function(app) {
       if (user.email) { //was user.password_confirmation
         auth.create(user, function(err) {
           if (err) {
+            console.log(err)
             return $scope.errors.push({
               msg: 'could not sign in'
             });
@@ -24,11 +25,13 @@ module.exports = function(app) {
     $scope.login = function(user) {
         auth.signIn(user, function(err) {
           if (err) {
+            console.log(err)
             return $scope.errors.push({
               msg: 'could not create user'
             });
           }
 
+          console.log($scope.errors)
           $window.location = '/'
         });
     }

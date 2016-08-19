@@ -4,7 +4,9 @@
   "description": "Find, host, and play table top games",
   "main": "server.js",
   "scripts": {
-    "test": "gulp test",
+    "create-db-dir": "node api_server/lib/make_directory.js",
+    "install": "npm run create-db-dir",
+    "test": "mocha test/**/*test.js",
     "start": "node server.js"
   },
   "repository": {
@@ -18,7 +20,17 @@
     "Meetup",
     "Play"
   ],
-  "author": "Nick Kuhn, Kristopher Skelton, Jason Studstill",
+  "author": "Jason Studstill",
+  "contributors": [
+    {
+      "name": "Jason Studstill",
+      "email": "standstill64@gmail.com"
+    },
+    {
+      "name": "Kristopher Skelton",
+      "email": "kristopher@kmskelton.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/studstill/joshua-game-finder/issues"
