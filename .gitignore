@@ -80,3 +80,5 @@ localVariables.txt
 ####################
 sftp-config*
 *.sublime-*
+=======
+node_modules
