@@ -8,7 +8,7 @@ const instanceRouter = module.exports = Router();
 
 // route for users to add new instance. This may need be the combinator for the game, location, user and time.
 instanceRouter.post('/instances', bodyParser, (req, res) => {
-  var newInstance = new Instance(req.body);
+  var newInstance = new Instances(req.body);
   newInstance.save((err, data) => {
     if (err) return errorHandler(err, res);
     res.status(200).json(data);
@@ -32,7 +32,7 @@ instanceRouter.put('/instances/:id', bodyParser, (req, res) => {
 });
 
 // Instances should eventually go away
-instanceRouter.delete('/locations/:id', (req, res) => {
+instanceRouter.delete('/instances/:id', (req, res) => {
   Instances.remove({ _id: req.params.id }, (err) => {
     if (err) return errorHandler(err, res);
     res.status(200).json({ msg: 'The instance has been removed.' });
