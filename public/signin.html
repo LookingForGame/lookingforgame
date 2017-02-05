@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Looking For Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rhodium+Libre' rel='stylesheet' type='text/css'>
+    <link href="/css/application.css" type="text/css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/fonts.css"> -->
+    <!-- <link rel="stylesheet" href="css/application.css"> -->
+  </head>
+
+  <body data-ng-app="gameApp">
+    <header class="siteHeader" data-header></header>
+    <main>
+      <section data-ng-controller="authController" ng-hide="userId">
+        <form data-ng-submit="login(user)">
+          <div class="container">
+            <fieldset class="form">
+              <div class="row">
+                <div class="three columns">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" data-ng-model="user.username">
+                </div>
+                <div class="three columns">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" data-ng-model="user.password">
+                </div>
+                <div class="row">
+                  <div class="two columns">
+                    <label for="sign-in" class="hideMe">sign-in</label>
+                    <button type="submit" name="sign-in">Sign in</button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer data-footer></footer>
+    <script src="js/bundle.js"></script>
+  </body>
+
+</html>

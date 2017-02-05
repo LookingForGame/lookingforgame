@@ -1,4 +1,22 @@
-<section data-sign-in></section>
+<section data-ng-controller="authController" ng-hide="userId">
+  <div class="container">
+    <fieldset class="form">
+      <div class="row">
+        <h1 class="siteHeader--title four columns">Looking For Game</h1>
+        <div class="row">
+          <div class="two columns">
+            <label for="sign-in" class="hideMe">sign-in</label>
+            <a href="signin.html"><button name="sign-in">Sign in</button></a>
+          </div>
+          <div class="two columns">
+            <label for="signup" class="hideMe">signup</label>
+            <a href="signup.html"><button name="signup">Sign up</button></a>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</section>
 <div data-ng-controller="authController" ng-show="userId">
   <div class="container">
     <div class="row">
