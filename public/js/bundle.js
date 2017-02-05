@@ -48,15 +48,17 @@
 	__webpack_require__(12);
 	__webpack_require__(11);
 	__webpack_require__(10);
-	__webpack_require__(19);
-	__webpack_require__(13);
+	__webpack_require__(21);
 	__webpack_require__(2);
-	__webpack_require__(20);
-	__webpack_require__(15);
+	__webpack_require__(13);
+	__webpack_require__(22);
 	__webpack_require__(18);
-	__webpack_require__(17);
+	__webpack_require__(20);
+	__webpack_require__(16);
 	__webpack_require__(14);
-	module.exports = __webpack_require__(16);
+	__webpack_require__(15);
+	__webpack_require__(17);
+	module.exports = __webpack_require__(19);
 
 
 /***/ },
@@ -77,8 +79,8 @@
 	__webpack_require__(12)(gameApp);
 
 	//controllers
-	__webpack_require__(2)(gameApp);
 	__webpack_require__(13)(gameApp);
+	__webpack_require__(2)(gameApp);
 
 	//directives
 	__webpack_require__(14)(gameApp);
@@ -86,6 +88,8 @@
 	__webpack_require__(16)(gameApp);
 	__webpack_require__(17)(gameApp);
 	__webpack_require__(18)(gameApp);
+	__webpack_require__(19)(gameApp);
+	__webpack_require__(20)(gameApp);
 
 
 /***/ },
@@ -95,82 +99,47 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.controller('instancesController', ['$scope', '$http', '$cookies', '$route', '$window', function($scope, $http, $cookies, $route, $window) {
-	    var jwt = $cookies.get('jwt');
-	    $http.defaults.headers.common['x-access-token'] = jwt;
-	    var getAll = function() {
-	      $http.get('/api/instances').success(function(response) {
-	        // In the response, we are sending all of the data for the user that is
-	        // currently logged in.
-	        $scope.instances = response.data;
-	        $scope.userId = response.userId;
-	        $scope.isCommitted = response.isCommitted;
-	        $scope.hosting = response.hosting;
-	        $scope.userName = response.userName;
-	        console.log('$scope.instances is below:');
-	        console.log($scope.instances);
-	      });
-	      $http.get('/api/locations').success(function(response) {
-	        $scope.locations = response.data;
-	      });
-	    };
-	    if (jwt){
-	      getAll();
+	  app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
+
+	    if (auth.isSignedIn()) {
+	      // $window.location = '/'
 	    }
-	    $scope.findId = function(instance) {
-	      var users = [];
-	      instance.participants.forEach(function(participant) {
-	        users.push(participant._id);
-	      });
-	      return users;
+	    $scope.errors = [];
+	    $scope.authSubmit = function(user) {
+	      if (user.email) { //was user.password_confirmation
+	        auth.create(user, function(err) {
+	          if (err) {
+	            return $scope.errors.push({
+	              msg: 'could not sign in'
+	            });
+	          }
+
+	          $window.location = '/'
+	        })
+	      }
 	    };
 
-	    $scope.submitForm = function(instance) {
-	      instance.host = $scope.userName;
-	      $http.post('/api/instances/', instance).success(function(response) {
-	        $http.get('/api/instances').success(function(response) {
-	          $scope.instances = response.data;
+	    $scope.login = function(user) {
+	        auth.signIn(user, function(err) {
+	          if (err) {
+	            return $scope.errors.push({
+	              msg: 'could not create user'
+	            });
+	          }
+
+	          $window.location = '/'
 	        });
-	      });
-	    };
+	    }
+	    $scope.logout = function() {
+	      auth.logout();
+	      $window.location = '/'
 
-	    $scope.destroy = function(id) {
-	      $http.delete('/api/instances/' + id).success(function(response) {
-	        getAll();
-	      });
 	    }
 
-	    $scope.edit = function(instance) {
-	      instance.editing = true;
-	    };
-
-	    $scope.cancel = function(instance) {
-	      getAll();
-	    };
-
-	    $scope.update = function(instance) {
-	      $http.put('/api/instances/' + id, instance)
-	        .error(function(error) {
-	          $scope.errors.push({
-	            msg: 'could not update instance'
-	          });
-	        });
-	      instance.editing = false;
-	      getAll();
-	    };
 	    $scope.reloadPage = function() {
-	      $window.location.reload();
-	    };
-	    $scope.join = function(id){
-	      $http.put('/api/instances/' + id + "/join");
-	    };
-	    $scope.quit = function(id){
-	      $http.put('/api/instances/' + id + "/quit");
-	    };
-	    $scope.gameOver = function(id){
-	      $http.put('/api/instances/' + id, {
-	        gameOver: true
-	      });
+	      // $timeout(function() {
+	      //   $window.location.reload();
+	      // }, 200);
 	    };
 	  }]);
 	};
@@ -30814,47 +30783,82 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
-
-	    if (auth.isSignedIn()) {
-	      // $window.location = '/'
+	  app.controller('instancesController', ['$scope', '$http', '$cookies', '$route', '$window', function($scope, $http, $cookies, $route, $window) {
+	    var jwt = $cookies.get('jwt');
+	    $http.defaults.headers.common['x-access-token'] = jwt;
+	    var getAll = function() {
+	      $http.get('/api/instances').success(function(response) {
+	        // In the response, we are sending all of the data for the user that is
+	        // currently logged in.
+	        $scope.instances = response.data;
+	        $scope.userId = response.userId;
+	        $scope.isCommitted = response.isCommitted;
+	        $scope.hosting = response.hosting;
+	        $scope.userName = response.userName;
+	        console.log('$scope.instances is below:');
+	        console.log($scope.instances);
+	      });
+	      $http.get('/api/locations').success(function(response) {
+	        $scope.locations = response.data;
+	      });
+	    };
+	    if (jwt){
+	      getAll();
 	    }
-	    $scope.errors = [];
-	    $scope.authSubmit = function(user) {
-	      if (user.email) { //was user.password_confirmation
-	        auth.create(user, function(err) {
-	          if (err) {
-	            return $scope.errors.push({
-	              msg: 'could not sign in'
-	            });
-	          }
-
-	          $window.location = '/'
-	        })
-	      }
+	    $scope.findId = function(instance) {
+	      var users = [];
+	      instance.participants.forEach(function(participant) {
+	        users.push(participant._id);
+	      });
+	      return users;
 	    };
 
-	    $scope.login = function(user) {
-	        auth.signIn(user, function(err) {
-	          if (err) {
-	            return $scope.errors.push({
-	              msg: 'could not create user'
-	            });
-	          }
-
-	          $window.location = '/'
+	    $scope.submitForm = function(instance) {
+	      instance.host = $scope.userName;
+	      $http.post('/api/instances/', instance).success(function(response) {
+	        $http.get('/api/instances').success(function(response) {
+	          $scope.instances = response.data;
 	        });
-	    }
-	    $scope.logout = function() {
-	      auth.logout();
-	      $window.location = '/'
+	      });
+	    };
 
+	    $scope.destroy = function(id) {
+	      $http.delete('/api/instances/' + id).success(function(response) {
+	        getAll();
+	      });
 	    }
 
+	    $scope.edit = function(instance) {
+	      instance.editing = true;
+	    };
+
+	    $scope.cancel = function(instance) {
+	      getAll();
+	    };
+
+	    $scope.update = function(instance) {
+	      $http.put('/api/instances/' + id, instance)
+	        .error(function(error) {
+	          $scope.errors.push({
+	            msg: 'could not update instance'
+	          });
+	        });
+	      instance.editing = false;
+	      getAll();
+	    };
 	    $scope.reloadPage = function() {
-	      // $timeout(function() {
-	      //   $window.location.reload();
-	      // }, 200);
+	      $window.location.reload();
+	    };
+	    $scope.join = function(id){
+	      $http.put('/api/instances/' + id + "/join");
+	    };
+	    $scope.quit = function(id){
+	      $http.put('/api/instances/' + id + "/quit");
+	    };
+	    $scope.gameOver = function(id){
+	      $http.put('/api/instances/' + id, {
+	        gameOver: true
+	      });
 	    };
 	  }]);
 	};
@@ -30862,6 +30866,54 @@
 
 /***/ },
 /* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('header', function() {
+	    return {
+	      restrict: 'AC',
+	      templateUrl: './templates/views/header.html'
+	    };
+	  });
+	};
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('main', function() {
+	    return {
+	      restrict: 'AC',
+	      templateUrl: './templates/views/main.html'
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('footer', function() {
+	    return {
+	      restrict: 'AC',
+	      templateUrl: './templates/views/footer.html'
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30878,7 +30930,7 @@
 
 
 /***/ },
-/* 15 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30887,14 +30939,14 @@
 	  app.directive('createUser', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/create_user.html'
+	      templateUrl: './templates/views/sub_views/create_user.html'
 	    }
 	  });
 	};
 
 
 /***/ },
-/* 16 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30903,30 +30955,14 @@
 	  app.directive('signIn', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/sign_in.html'
+	      templateUrl: './templates/views/sub_views/sign_in.html'
 	    };
 	  });
 	};
 
 
 /***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('header', function() {
-	    return {
-	      restrict: 'AC',
-	      templateUrl: './templates/views/header.html'
-	    };
-	  });
-	};
-
-
-/***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30935,14 +30971,14 @@
 	  app.directive('currentGames', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/current_games.html'
+	      templateUrl: './templates/views/sub_views/current_games.html'
 	    }
 	  });
 	};
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -30987,7 +31023,7 @@
 
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
