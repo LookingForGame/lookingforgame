@@ -1,23 +1,12 @@
 <section data-sign-in></section>
-<div ng-show="userId">
+<div data-ng-controller="authController" ng-show="userId">
   <div class="container">
     <div class="row">
-      <div class="five columns">
-        <h1 class="siteHeader--title">Looking For Game</h1>
-      </div>
-      <div class="offset-by-three columns three columns>">
-        <section data-ng-controller="instancesController">
-          <h2>Welcome Back {{ userName }}!</h2>
-        </section>
-      </div>
-      <div class="offset-by-eight columns three columns">
-        <section data-ng-controller="authController">
-          <form data-ng-submit="logout()">
-            <button type="submit">Log Out</button>
-            </span>
-          </form>
-        </section>
-      </div>
+      <h1 class="siteHeader--title three columns">Looking For Game</h1>
+      <form data-ng-submit="logout()" class="offset-by-four five columns">
+        <h2 class="three columns">{{ userName }}</h2>
+        <button type="submit" class="five columns">Log Out</button>
+      </form>
     </div>
   </div>
 </div>
