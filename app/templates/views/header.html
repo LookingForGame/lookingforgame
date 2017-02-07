@@ -1,30 +1,26 @@
 <section data-ng-controller="authController" ng-hide="userId">
-  <div class="container">
-    <fieldset class="form">
-      <div class="row">
-        <h1 class="siteHeader--title four columns">Looking For Game</h1>
+  <div class="container col-md-12">
+    <div class="container">
+      <fieldset class="form">
         <div class="row">
-          <div class="two columns">
-            <label for="sign-in" class="hideMe">sign-in</label>
-            <a href="signin.html"><button name="sign-in">Sign in</button></a>
-          </div>
-          <div class="two columns">
-            <label for="signup" class="hideMe">signup</label>
-            <a href="signup.html"><button name="signup">Sign up</button></a>
-          </div>
+          <h1>Looking For Game</h1>
+          <label for="sign-in" class="sr-only">sign-in</label>
+          <a href="signin.html"><button name="sign-in" class="btn btn-primary">Sign in</button></a>
+          <label for="signup" class="sr-only">signup</label>
+          <a href="signup.html"><button name="signup" class="btn btn-primary">Sign up</button></a>
         </div>
+      </fieldset>
+    </div>
+  </section>
+  <div data-ng-controller="authController" ng-show="userId">
+    <div class="container">
+      <div class="row">
+        <h1 class="siteHeader--title three columns">Looking For Game</h1>
+        <form data-ng-submit="logout()" class="offset-by-four five columns">
+          <h2 class="three columns">{{ userName }}</h2>
+          <button type="submit" class="btn btn-primary five columns">Log Out</button>
+        </form>
       </div>
-    </fieldset>
-  </div>
-</section>
-<div data-ng-controller="authController" ng-show="userId">
-  <div class="container">
-    <div class="row">
-      <h1 class="siteHeader--title three columns">Looking For Game</h1>
-      <form data-ng-submit="logout()" class="offset-by-four five columns">
-        <h2 class="three columns">{{ userName }}</h2>
-        <button type="submit" class="five columns">Log Out</button>
-      </form>
     </div>
   </div>
 </div>

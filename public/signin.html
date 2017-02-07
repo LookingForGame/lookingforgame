@@ -7,39 +7,27 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Rhodium+Libre' rel='stylesheet' type='text/css'>
     <link href="/css/application.css" type="text/css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="css/fonts.css"> -->
-    <!-- <link rel="stylesheet" href="css/application.css"> -->
   </head>
 
   <body data-ng-app="gameApp">
     <header class="siteHeader" data-header></header>
     <main>
       <section data-ng-controller="authController" ng-hide="userId">
-        <form data-ng-submit="login(user)">
-          <div class="container">
-            <fieldset class="form">
-              <div class="row">
-                <div class="three columns">
-                  <label for="username">Username</label>
-                  <input type="text" name="username" data-ng-model="user.username">
-                </div>
-                <div class="three columns">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" data-ng-model="user.password">
-                </div>
-                <div class="row">
-                  <div class="two columns">
-                    <label for="sign-in" class="hideMe">sign-in</label>
-                    <button type="submit" name="sign-in">Sign in</button>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </form>
+        <div class="container col-md-4">
+          <form data-ng-submit="login(user)" class="form-signin">
+            <h2 class="form-signin-heading">Sign in</h2>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" data-ng-model="user.username" class="form-control">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" data-ng-model="user.password" class="form-control">
+            <label for="sign-in" class="sr-only">sign-in</label>
+            <button type="submit" name="sign-in" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          </form>
+        </div>
       </section>
     </main>
     <footer data-footer></footer>
