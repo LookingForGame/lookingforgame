@@ -1,26 +1,41 @@
-<section data-ng-controller="authController" ng-hide="userId">
-  <div class="container-fluid navbar">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-          Looking For Game
-      </a>
-    </div>
-    <div class="navbar-form navbar-right">
-      <label for="sign-in" class="sr-only">sign-in</label>
-      <a href="signin.html"><button name="sign-in" class="btn btn-primary">Login</button></a>
-      <label for="signup" class="sr-only">signup</label>
-      <a href="signup.html"><button name="signup" class="btn btn-primary">Sign up</button></a>
-    </div>
-  </section>
-  <div data-ng-controller="authController" ng-show="userId">
-    <div class="container">
-      <div class="row">
-        <h1 class="siteHeader--title three columns">Looking For Game</h1>
-        <form data-ng-submit="logout()" class="offset-by-four five columns">
-          <h2 class="three columns">{{ userName }}</h2>
-          <button type="submit" class="btn btn-primary five columns">Log Out</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Looking For Game</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" data-ng-controller="authController">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li ng-show="userId">
+                        <a href="#">{{userName}}</a>
+                    </li>
+                    <div class="navbar-form navbar-right" ng-hide="userId">
+                        <label for="sign-in" class="sr-only">sign-in</label>
+                        <a href="signin.html"><button name="sign-in" class="btn btn-primary">Login</button></a>
+                        <label for="signup" class="sr-only">signup</label>
+                        <a href="signup.html"><button name="signup" class="btn btn-primary">Sign up</button></a>
+                    </div>
+                    <div class="navbar-form navbar-right" data-ng-controller="authController" ng-show="userId">
+                        <label for="logout" class="sr-only">Log Out</label>
+                        <button ng-click="logout()" name="logout" class="btn btn-primary five columns">Log Out</button>
+                    </form>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
