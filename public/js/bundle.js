@@ -107,29 +107,47 @@
 	    $scope.errors = [];
 	    $scope.authSubmit = function(user) {
 	      if (user.email) { //was user.password_confirmation
-	        auth.create(user, function(err) {
-	          if (err) {
-	            return $scope.errors.push({
-	              msg: 'could not sign in'
-	            });
+	        auth.create(user, function(data, err) {
+	          if (data.success) {
+	            $scope.errorMsg = null;
+	            $window.location = '/'
 	          }
-
-	          $window.location = '/'
-	        })
-	      }
-	    };
-
-	    $scope.login = function(user) {
-	        auth.signIn(user, function(err) {
+	          if (!data.success) {
+	            $scope.errorMsg = data.msg;
+	            // console.log('errorMsg: ' + $scope.errorMsg)
+	            return $scope.errorMsg;
+	          }
 	          if (err) {
 	            return $scope.errors.push({
 	              msg: 'could not create user'
 	            });
 	          }
+	        })
+	      }
+	    };
 
-	          $window.location = '/'
-	        });
-	    }
+	    $scope.login = function(user) {
+	        if (user.username) {
+	          auth.signIn(user, function(data, err) {
+	            if (data.success) {
+	              $scope.errorMsg = null;
+	              $window.location = '/'
+	            }
+	            if (!data.success) {
+	              $scope.errorMsg = "Invalid username or password";
+	              // console.log('errorMsg: ' + $scope.errorMsg)
+	              return $scope.errorMsg;
+	            }
+	            if (err) {
+	              return $scope.errors.push({
+	                msg: 'could not create user'
+	              });
+	            }
+
+	          });
+	        }
+	    };
+
 	    $scope.logout = function() {
 	      auth.logout();
 	      $window.location = '/'
@@ -30743,9 +30761,9 @@
 	    return {
 	      signIn: function(user, callback) {
 	        $http.post('/auth/login', user)
-	          .success(function(data) {
+	          .success(function(data, err) {
 	            $cookies.put('jwt', data.token);
-	            callback(null);
+	            callback(data, err);
 	          })
 	          .error(function(data) {
 	            callback(data);
@@ -30754,12 +30772,12 @@
 
 	      create: function(user, callback) {
 	        $http.post('/api/users', user)
-	          .success(function(data) {
+	          .success(function(data, err) {
 	            $cookies.put('jwt', data.token)
-	            callback(null);
+	            callback(data, err);
 	          })
-	          .error(function(data) {
-	            callback(data);
+	          .error(function(data, err) {
+	            callback(data, err);
 	          });
 	      },
 

@@ -5,9 +5,9 @@ module.exports = function(app) {
     return {
       signIn: function(user, callback) {
         $http.post('/auth/login', user)
-          .success(function(data) {
+          .success(function(data, err) {
             $cookies.put('jwt', data.token);
-            callback(null);
+            callback(data, err);
           })
           .error(function(data) {
             callback(data);
@@ -16,12 +16,12 @@ module.exports = function(app) {
 
       create: function(user, callback) {
         $http.post('/api/users', user)
-          .success(function(data) {
+          .success(function(data, err) {
             $cookies.put('jwt', data.token)
-            callback(null);
+            callback(data, err);
           })
-          .error(function(data) {
-            callback(data);
+          .error(function(data, err) {
+            callback(data, err);
           });
       },
 
