@@ -66,3 +66,218 @@
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
+
+/*
+ * Start Bootstrap - One Page Wonder (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+body {
+  margin-top: 50px;
+  /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */ }
+
+.header-image {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: url("../settlers-of-catan-tiltshift.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover; }
+
+.headline {
+  padding: 120px 0; }
+
+.headline h1, .headline h2 {
+  font-size: 150px;
+  color: #444;
+  background: rgba(255, 255, 255, 0.75);
+  margin: 0 0 35px;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px; }
+
+.headline h2 {
+  font-size: 77px;
+  color: #777;
+  margin: 0 0 0; }
+
+.featurette-divider {
+  margin: 80px 0; }
+
+.featurette {
+  overflow: hidden; }
+
+.featurette-image.pull-left {
+  margin-right: 40px; }
+
+.featurette-image.pull-right {
+  margin-left: 40px; }
+
+.featurette-heading {
+  font-size: 50px; }
+
+footer {
+  margin: 50px 0; }
+
+@media (max-width: 1200px) {
+  .headline h1 {
+    font-size: 140px; }
+  .headline h2 {
+    font-size: 63px; }
+  .featurette-divider {
+    margin: 50px 0; }
+  .featurette-image.pull-left {
+    margin-right: 20px; }
+  .featurette-image.pull-right {
+    margin-left: 20px; }
+  .featurette-heading {
+    font-size: 35px; } }
+
+@media (max-width: 991px) {
+  .headline h1 {
+    font-size: 105px; }
+  .headline h2 {
+    font-size: 50px; }
+  .featurette-divider {
+    margin: 40px 0; }
+  .featurette-image {
+    max-width: 50%; }
+  .featurette-image.pull-left {
+    margin-right: 10px; }
+  .featurette-image.pull-right {
+    margin-left: 10px; }
+  .featurette-heading {
+    font-size: 30px; } }
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0 15px; }
+  .featurette-divider {
+    margin: 40px 0; }
+  .featurette-heading {
+    font-size: 25px; } }
+
+@media (max-width: 668px) {
+  .headline h1 {
+    font-size: 70px; }
+  .headline h2 {
+    font-size: 32px; }
+  .featurette-divider {
+    margin: 30px 0; } }
+
+@media (max-width: 640px) {
+  .headline {
+    padding: 75px 0 25px 0; }
+  .headline h1 {
+    font-size: 60px; }
+  .headline h2 {
+    font-size: 30px; } }
+
+@media (max-width: 375px) {
+  .featurette-divider {
+    margin: 10px 0; }
+  .featurette-image {
+    max-width: 100%; }
+  .featurette-image.pull-left {
+    margin-right: 0;
+    margin-bottom: 10px; }
+  .featurette-image.pull-right {
+    margin-bottom: 10px;
+    margin-left: 0; } }
+
+.btn-primary {
+  color: white;
+  background-color: #FDB554;
+  border-color: #f6bf01;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700; }
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: white;
+  background-color: #fdc06d;
+  border-color: #fec912; }
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none; }
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #fdaa3b;
+  border-color: #ddab01; }
+
+.btn-primary .badge {
+  color: #FDB554;
+  background-color: white; }
+
+.btn-xl {
+  color: white;
+  background-color: #FDB554;
+  border-color: #f6bf01;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 20px 40px; }
+
+.btn-xl:hover,
+.btn-xl:focus,
+.btn-xl:active,
+.btn-xl.active,
+.open .dropdown-toggle.btn-xl {
+  color: white;
+  background-color: #fdc06d;
+  border-color: #fec912; }
+
+.btn-xl:active,
+.btn-xl.active,
+.open .dropdown-toggle.btn-xl {
+  background-image: none; }
+
+.btn-xl.disabled,
+.btn-xl[disabled],
+fieldset[disabled] .btn-xl,
+.btn-xl.disabled:hover,
+.btn-xl[disabled]:hover,
+fieldset[disabled] .btn-xl:hover,
+.btn-xl.disabled:focus,
+.btn-xl[disabled]:focus,
+fieldset[disabled] .btn-xl:focus,
+.btn-xl.disabled:active,
+.btn-xl[disabled]:active,
+fieldset[disabled] .btn-xl:active,
+.btn-xl.disabled.active,
+.btn-xl[disabled].active,
+fieldset[disabled] .btn-xl.active {
+  background-color: #fdaa3b;
+  border-color: #ddab01; }
+
+.btn-xl .badge {
+  color: white;
+  background-color: #FDB554; }
+
+.navbar-brand {
+  font-family: Rhodium Libre; }
