@@ -33,11 +33,37 @@ module.exports = function(app) {
     };
 
     $scope.submitForm = function(instance) {
+
       instance.host = $scope.userName;
+      var time = instance.startTime;
+
+      // Add formatted time for easy readability
+
+      function formatHour(time) {
+        var timeArr = time.split(":");
+        var hour = timeArr[0];
+        var min = timeArr[1];
+
+        //it is pm if hour from 12 onwards
+        var suffix = (hour >= 12)? 'pm' : 'am';
+        //only -12 from hour if it is greater than 12 (if not back at mid night)
+        var hour = (hour > 12)? parseInt(hour - 12) : parseInt(hour);
+        //if 00 then it is 12 am
+        var hour = (hour == '00')? 12 : parseInt(hour);
+        return hour + ':' + min + suffix;
+      }
+
+
+      instance.formattedStartTime = formatHour(time);
+
+      console.log(instance.formattedStartTime)
+
+
       $http.post('/api/instances/', instance).success(function(response) {
         $http.get('/api/instances').success(function(response) {
           $scope.instances = response.data;
-          $scope.apply();
+          // TODO - Update Scope dynamically
+          $window.location.reload();
         });
       });
     };

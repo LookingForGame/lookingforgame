@@ -8,6 +8,7 @@ var instanceSchema = Schema({
   playersNeeded: Number,
   signedUp: Number,
   startDate: Date,
+  formattedStartTime: String,
   startTime: String,
   playTime: String,
   date: {
