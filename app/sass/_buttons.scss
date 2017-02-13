@@ -21,6 +21,8 @@
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   background-image: none;
+  background-color: darken($button-background-color, 5%);
+  border-color: darken($button-border-color, 5%);
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -68,6 +70,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
   background-image: none;
+  background-color: darken($button-background-color, 5%);
+  border-color: darken($button-border-color, 5%);
 }
 .btn-xl.disabled,
 .btn-xl[disabled],

@@ -208,7 +208,9 @@ footer {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background-image: none; }
+  background-image: none;
+  background-color: #fdaa3b;
+  border-color: #ddab01; }
 
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -255,7 +257,9 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-  background-image: none; }
+  background-image: none;
+  background-color: #fdaa3b;
+  border-color: #ddab01; }
 
 .btn-xl.disabled,
 .btn-xl[disabled],
@@ -284,3 +288,6 @@ fieldset[disabled] .btn-xl.active {
 
 .addNewGame {
   margin-top: 75px; }
+
+.instance-info {
+  margin-top: 0; }
