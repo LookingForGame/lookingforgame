@@ -10,6 +10,10 @@ module.exports = function(router) {
 
   // Login
   router.post('/login', function(req, res) {
+
+    // Force username to lowercase
+    req.body.username = req.body.username.toLowerCase();
+
     // Find a user
     User.findOne({username: req.body.username}, function(err, user) {
       if (err) {
