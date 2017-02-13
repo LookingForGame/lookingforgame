@@ -1,17 +1,20 @@
 <div data-ng-controller="instancesController" ng-model="query" ng-show="userId">
-  <h2 class="body--text"> Current Games </h2>
-  <h4>Arrange Games By: </h4>
-  <select ng-model="queryBy">
-    <option value="host">Host</option>
-    <option value="game">Game</option>
-    <option value="location">Location</option>
-    <option value="gameOver">Game Status</option>
-    <option value="date">Recently Added</option>
-  </select>
+  <div class="container">
+    <h2> Current Games </h2>
+    <h4>Arrange Games By: </h4>
+    <select ng-model="queryBy">
+      <option value="host">Host</option>
+      <option value="game">Game</option>
+      <option value="location">Location</option>
+      <option value="gameOver">Game Status</option>
+      <option value="date">Recently Added</option>
+    </select>
+  </div>
+
   <div class="row">
-  <ul>
+  <ul class="container">
     <!-- existing games -->
-      <div class="col-sm-11 hero-feature game-instance" data-ng-repeat="instance in instances.slice().reverse() | filter:query | orderBy: queryBy" data-ng-class="{even: $even, odd: $odd}">
+      <div class="col-12 hero-feature game-instance" data-ng-repeat="instance in instances.slice().reverse() | filter:query | orderBy: queryBy" data-ng-class="{even: $even, odd: $odd}">
           <div class="thumbnail">
               <!-- <img src="http://placehold.it/800x500" alt=""> -->
               <div class="caption">
