@@ -1,16 +1,17 @@
 <div data-ng-controller="instancesController" ng-model="query" ng-show="userId">
   <div class="container">
-    <h2> Current Games </h2>
-    <h4>Arrange Games By: </h4>
-    <select ng-model="queryBy">
-      <option value="host">Host</option>
-      <option value="game">Game</option>
-      <option value="location">Location</option>
-      <option value="gameOver">Game Status</option>
-      <option value="date">Recently Added</option>
-    </select>
+    <div class="row-fluid">
+      <h3>Current Games</h3>
+      <label for="gameFilter">Arrange Games By </h4>
+      <select name="gameFilter" ng-model="queryBy">
+        <option value="host">Host</option>
+        <option value="game">Game</option>
+        <option value="location">Location</option>
+        <option value="gameOver">Game Status</option>
+        <option value="date">Recently Added</option>
+      </select>
+    </div>
   </div>
-
   <div class="row">
   <ul class="container">
     <!-- existing games -->
@@ -21,7 +22,7 @@
                   <h3>{{ instance.host }}'s {{ instance.game }} <br/>@ {{ instance.startTime }} at {{ instance.location }}</h3>
                   <div>
                   <p>
-                      <a href="#" class="btn btn-primary">Join Game!</a>
+                      <a href="#" class="btn btn-primary" ng-disabled="{{instance.gameOver}}">Join Game</a>
                       <a href="#" class="btn btn-default" ng-click="showDetail = !showDetail">More Info</a>
                   </p>
                     <ul ng-show="showDetail">
@@ -82,8 +83,6 @@
               </div>
           </div>
       </div>
-
-
+      </ul>
     </div>
-  </ul>
 </div>

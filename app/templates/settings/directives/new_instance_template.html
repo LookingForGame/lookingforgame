@@ -1,28 +1,27 @@
-<form class="form-inline container" data-ng-controller="instancesController" data-ng-submit="submitForm(instance)" ng-show="userId && isCommitted === false">
-	<h3>Add a Game: </h3>
-	<div class="row">
-		<div class="form-group col-2">
+<form class="form-inline container addNewGame" data-ng-controller="instancesController"  data-ng-submit="submitForm(instance)" ng-show="userId && isCommitted === false">
+	<div id="addAGame">
+		<div class="form-group col-3">
 			<label class="sr-only" for="game">Game</label>
 			<input placeholder="Game Name" class="form-control" id="game" type="text" data-ng-model="instance.game">
 		</div>
-		<div class="form-group col-2">
+		<div class="form-group col-3">
 			<label class="sr-only" for="where">Location</label>
 			<input placeholder="Location" class="form-control" id="where" type="text" data-ng-model="instance.location">
 		</div>
-		<div class="form-group col-2">
+		<div class="form-group col-3">
 			<label class="sr-only" for="playersNeeded">Players Needed</label>
 			<input placeholder="Players Needed" class="form-control" id="playersNeeded" type="number" data-ng-model="instance.playersNeeded">
 		</div>
-		<div class="form-group col-2">
+		<div class="form-group col-3">
 			<label class="sr-only" for="time">Start Time</label>
 			<input placeholder="Start Time" class="form-control" id="time" type="text" data-ng-model="instance.startTime">
 		</div>
-		<div class="form-group col-2">
+		<div class="form-group col-3">
 			<label class="sr-only" for="duration">Duration</label>
 			<input placeholder="Duration" class="form-control" id="duration" type="text" data-ng-model="instance.playTime">
 		</div>
-		<div class="form-group col-2">
-			<button class="form-control btn btn-primary" type="submit" data-ng-click="reloadPage()">Submit</button>
+		<div class="form-group col-3">
+			<button class="form-control btn btn-primary" type="submit" data-ng-click="reloadPage()">Add New Game</button>
 		</div>
 	</div>
 </form>

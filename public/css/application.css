@@ -281,3 +281,6 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-brand {
   font-family: Rhodium Libre; }
+
+.addNewGame {
+  margin-top: 75px; }

@@ -37,6 +37,7 @@ module.exports = function(app) {
       $http.post('/api/instances/', instance).success(function(response) {
         $http.get('/api/instances').success(function(response) {
           $scope.instances = response.data;
+          $scope.apply();
         });
       });
     };
