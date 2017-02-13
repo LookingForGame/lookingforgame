@@ -30813,6 +30813,7 @@
 	        $scope.isCommitted = response.isCommitted;
 	        $scope.hosting = response.hosting;
 	        $scope.userName = response.userName;
+	        $scope.showDetail = false;
 	        console.log('$scope.instances is below:');
 	        console.log($scope.instances);
 	      });
