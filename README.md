@@ -5,7 +5,7 @@
 Unlike traditional meetups, our "game finder" app allows users to host or join
 games _in real time_!
 
-Is it Tuesday night and you are itching to throw down on some Settlers of
+Let's say it's Tuesday night and you are itching to throw down on some Settlers of
 Catan, but all your friends are busy?  No problem!  Boot up Joshua and see
 if anyone in your area is available for a game!
 
@@ -22,7 +22,7 @@ marked as "in progress," or is removed from the list of available games.
 
 ##Primary Features:
 
-Ulimately, the purpose of this app is to provide real-time listings of _open_
+The purpose of this app is to provide real-time listings of _open_
 games that are looking for players.
 
 Each listing will include:
@@ -35,37 +35,4 @@ Each listing will include:
 - Host's Name
 - Names of participants
 
-
-#####Routes
-
-######/api/users
-
-GET- responds with array of all users
-
-POST- Adds a user returns the token for the new user
-
-######/api/users/:username
-
-GET- responds with a specific user
-
-DELETE- Deletes a specific user
-
-PUT-When passed a JSON updates the contained fields in DB and responds with an updated user
-
-######/api/instances
-
-GET- Gets an array of instances
-
-POST- Adds an instance
-
-######/api/instances/:instanceID
-
-GET- responds with a specific instance
-
-DELETE- Deletes a specific instance
-
-PUT- When passed a JSON updates the contained fields in DB and responds with an updated instance
-
-######/auth/login
-
-POST- when passed a valid username and password responds with a token
+ Looking for Game &copy; 2017
