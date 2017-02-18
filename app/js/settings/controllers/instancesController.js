@@ -53,11 +53,7 @@ module.exports = function(app) {
         return hour + ':' + min + suffix;
       }
 
-
       instance.formattedStartTime = formatHour(time);
-
-      console.log(instance.formattedStartTime)
-
 
       $http.post('/api/instances/', instance).success(function(response) {
         $http.get('/api/instances').success(function(response) {
