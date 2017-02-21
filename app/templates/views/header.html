@@ -1,41 +1,42 @@
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Looking For Game</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" data-ng-controller="authController">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li ng-show="userId">
-                        <a href="#">{{userName}}</a>
-                    </li>
-                    <div class="navbar-form navbar-right" ng-hide="userId">
-                        <label for="sign-in" class="sr-only">sign-in</label>
-                        <a href="signin.html"><button name="sign-in" class="btn btn-primary">Login</button></a>
-                        <label for="signup" class="sr-only">signup</label>
-                        <a href="signup.html"><button name="signup" class="btn btn-primary">Sign up</button></a>
-                    </div>
-                    <div class="navbar-form navbar-right" data-ng-controller="authController" ng-show="userId">
-                        <label for="logout" class="sr-only">Log Out</label>
-                        <button ng-click="logout()" name="logout" class="btn btn-primary">Log Out</button>
-                    </div>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<!-- TODO - Factor User ID out of Instances Controller into AuthController -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="instancesController">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Looking For Game</a>
         </div>
-        <!-- /.container -->
-    </nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="about">About</a>
+                </li>
+                <li>
+                    <a ui-sref="contact">Contact</a>
+                </li>
+                <li ng-show="userId">
+                    <a href="#">{{userName}}</a>
+                </li>
+                <div class="navbar-form navbar-right" ng-hide="userId">
+                    <label for="sign-in" class="sr-only">sign-in</label>
+                    <a ui-sref="signin"><button name="sign-in" class="btn btn-primary">Login</button></a>
+                    <label for="signup" class="sr-only">signup</label>
+                    <a ui-sref="signup"><button name="signup" class="btn btn-primary">Sign up</button></a>
+                </div>
+                <div class="navbar-form navbar-right" data-ng-controller="authController" ng-show="userId">
+                    <label for="logout" class="sr-only">Log Out</label>
+                    <button ng-click="logout()" name="logout" class="btn btn-primary">Log Out</button>
+                </div>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>

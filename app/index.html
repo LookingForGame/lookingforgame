@@ -13,11 +13,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="/css/application.css" type="text/css" rel="stylesheet" />
+    <!-- Set base URL to hide "#" in path -->
+    <base href="/">
   </head>
 
-  <body data-ng-app="gameApp">
+  <body data-ng-app="gameApp" data-ng-view>
     <header class="siteHeader" data-header></header>
-    <main data-main></main>
+    <!-- Angular Router -->
+    <ui-view></ui-view>
     <footer data-footer></footer>
     <script src="js/bundle.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"

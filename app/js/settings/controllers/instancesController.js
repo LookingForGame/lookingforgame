@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('instancesController', ['$scope', '$http', '$cookies', '$route', '$window', function($scope, $http, $cookies, $route, $window) {
+  app.controller('instancesController', ['$scope', '$http', '$cookies','$window', function($scope, $http, $cookies, $window) {
     var jwt = $cookies.get('jwt');
     $http.defaults.headers.common['x-access-token'] = jwt;
     var getAll = function() {

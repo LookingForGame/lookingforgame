@@ -1,10 +1,56 @@
 'use strict';
 
 require('angular/angular');
-require('angular-route');
+require('angular-ui-router');
 require('angular-cookies');
 require('angucomplete-alt');
-var gameApp = angular.module('gameApp', ['ngRoute', 'ngCookies', "angucomplete-alt"]);
+
+var gameApp = angular.module('gameApp', ['ui.router', 'ngCookies', "angucomplete-alt"])
+    .config(function($stateProvider, $locationProvider) {
+      var mainState = {
+        name: 'main',
+        url: '/',
+        templateUrl: '../../templates/views/main.html'
+      };
+
+      var aboutState = {
+        name: 'about',
+        url: '/about/',
+        templateUrl: '../../templates/views/about.html'
+      };
+
+      var contactState = {
+        name: 'contact',
+        url: '/contact/',
+        templateUrl: '../../templates/views/contact.html'
+      };
+
+      var signinState = {
+        name: 'signin',
+        url: '/signin/',
+        templateUrl: '../../templates/views/signin.html'
+      };
+
+      var signupState = {
+        name: 'signup',
+        url: '/signup/',
+        templateUrl: '../../templates/views/signup.html'
+      };
+
+      $stateProvider.state(mainState);
+      $stateProvider.state(aboutState);
+      $stateProvider.state(contactState);
+      $stateProvider.state(signinState);
+      $stateProvider.state(signupState);
+
+
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
+
+    });
+
+// Instantiate Router
+// require('./settings/controllers/routerController.js')(gameApp);
 
 //services
 require('./services/resourceServices.js')(gameApp);
