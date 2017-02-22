@@ -5,63 +5,21 @@ require('angular-ui-router');
 require('angular-cookies');
 require('angucomplete-alt');
 
-var gameApp = angular.module('gameApp', ['ui.router', 'ngCookies', "angucomplete-alt"])
-    .config(function($stateProvider, $locationProvider) {
-      var mainState = {
-        name: 'main',
-        url: '/',
-        templateUrl: '../../templates/views/main.html'
-      };
+var gameApp = angular.module('gameApp', ['ui.router', 'ngCookies', "angucomplete-alt"]);
 
-      var aboutState = {
-        name: 'about',
-        url: '/about/',
-        templateUrl: '../../templates/views/about.html'
-      };
+// Router
+require('./router.js')(gameApp);
 
-      var contactState = {
-        name: 'contact',
-        url: '/contact/',
-        templateUrl: '../../templates/views/contact.html'
-      };
-
-      var signinState = {
-        name: 'signin',
-        url: '/signin/',
-        templateUrl: '../../templates/views/signin.html'
-      };
-
-      var signupState = {
-        name: 'signup',
-        url: '/signup/',
-        templateUrl: '../../templates/views/signup.html'
-      };
-
-      $stateProvider.state(mainState);
-      $stateProvider.state(aboutState);
-      $stateProvider.state(contactState);
-      $stateProvider.state(signinState);
-      $stateProvider.state(signupState);
-
-
-        // use the HTML5 History API
-        $locationProvider.html5Mode(true);
-
-    });
-
-// Instantiate Router
-// require('./settings/controllers/routerController.js')(gameApp);
-
-//services
+// Services
 require('./services/resourceServices.js')(gameApp);
 require('./services/copy')(gameApp);
 require('./services/auth')(gameApp);
 
-//controllers
+// Controllers
 require('./settings/controllers/instancesController.js')(gameApp);
 require('./settings/controllers/authController.js')(gameApp);
 
-//directives
+// Directives
 require('./settings/directives/header_directive.js')(gameApp);
 require('./settings/directives/main_directive.js')(gameApp);
 require('./settings/directives/footer_directive.js')(gameApp);

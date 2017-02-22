@@ -45,21 +45,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
+	__webpack_require__(8);
 	__webpack_require__(11);
 	__webpack_require__(10);
 	__webpack_require__(9);
-	__webpack_require__(17);
-	__webpack_require__(19);
-	__webpack_require__(15);
+	__webpack_require__(21);
 	__webpack_require__(13);
-	__webpack_require__(14);
-	__webpack_require__(16);
+	__webpack_require__(12);
+	__webpack_require__(22);
+	__webpack_require__(23);
 	__webpack_require__(18);
 	__webpack_require__(20);
-	__webpack_require__(2);
-	__webpack_require__(12);
-	__webpack_require__(21);
-	module.exports = __webpack_require__(22);
+	__webpack_require__(16);
+	__webpack_require__(14);
+	__webpack_require__(15);
+	__webpack_require__(17);
+	module.exports = __webpack_require__(19);
 
 
 /***/ },
@@ -68,150 +69,37 @@
 
 	'use strict';
 
+	__webpack_require__(2);
 	__webpack_require__(3);
 	__webpack_require__(4);
-	__webpack_require__(5);
-	__webpack_require__(7);
+	__webpack_require__(6);
 
-	var gameApp = angular.module('gameApp', ['ui.router', 'ngCookies', "angucomplete-alt"])
-	    .config(function($stateProvider, $locationProvider) {
-	      var mainState = {
-	        name: 'main',
-	        url: '/',
-	        templateUrl: '../../templates/views/main.html'
-	      };
+	var gameApp = angular.module('gameApp', ['ui.router', 'ngCookies', "angucomplete-alt"]);
 
-	      var aboutState = {
-	        name: 'about',
-	        url: '/about/',
-	        templateUrl: '../../templates/views/about.html'
-	      };
+	// Router
+	__webpack_require__(8)(gameApp);
 
-	      var contactState = {
-	        name: 'contact',
-	        url: '/contact/',
-	        templateUrl: '../../templates/views/contact.html'
-	      };
-
-	      var signinState = {
-	        name: 'signin',
-	        url: '/signin/',
-	        templateUrl: '../../templates/views/signin.html'
-	      };
-
-	      var signupState = {
-	        name: 'signup',
-	        url: '/signup/',
-	        templateUrl: '../../templates/views/signup.html'
-	      };
-
-	      $stateProvider.state(mainState);
-	      $stateProvider.state(aboutState);
-	      $stateProvider.state(contactState);
-	      $stateProvider.state(signinState);
-	      $stateProvider.state(signupState);
-
-
-	        // use the HTML5 History API
-	        $locationProvider.html5Mode(true);
-
-	    });
-
-	// Instantiate Router
-	// require('./settings/controllers/routerController.js')(gameApp);
-
-	//services
+	// Services
 	__webpack_require__(9)(gameApp);
 	__webpack_require__(10)(gameApp);
 	__webpack_require__(11)(gameApp);
 
-	//controllers
+	// Controllers
 	__webpack_require__(12)(gameApp);
-	__webpack_require__(2)(gameApp);
-
-	//directives
 	__webpack_require__(13)(gameApp);
+
+	// Directives
 	__webpack_require__(14)(gameApp);
 	__webpack_require__(15)(gameApp);
 	__webpack_require__(16)(gameApp);
 	__webpack_require__(17)(gameApp);
 	__webpack_require__(18)(gameApp);
 	__webpack_require__(19)(gameApp);
+	__webpack_require__(20)(gameApp);
 
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
-
-	    if (auth.isSignedIn()) {
-	      // $window.location = '/'
-	    }
-	    $scope.errors = [];
-	    $scope.authSubmit = function(user) {
-	      if (user.email) { //was user.password_confirmation
-	        auth.create(user, function(data, err) {
-	          if (data.success) {
-	            $scope.errorMsg = null;
-	            $window.location = '/'
-	          }
-	          if (!data.success) {
-	            $scope.errorMsg = data.msg;
-	            // console.log('errorMsg: ' + $scope.errorMsg)
-	            return $scope.errorMsg;
-	          }
-	          if (err) {
-	            return $scope.errors.push({
-	              msg: 'could not create user'
-	            });
-	          }
-	        })
-	      }
-	    };
-
-	    $scope.login = function(user) {
-	        if (user.username) {
-	          auth.signIn(user, function(data, err) {
-	            if (data.success) {
-	              $scope.errorMsg = null;
-	              $window.location = '/'
-	            }
-	            if (!data.success) {
-	              $scope.errorMsg = "Invalid username or password";
-	              // console.log('errorMsg: ' + $scope.errorMsg)
-	              return $scope.errorMsg;
-	            }
-	            if (err) {
-	              return $scope.errors.push({
-	                msg: 'could not create user'
-	              });
-	            }
-
-	          });
-	        }
-	    };
-
-	    $scope.logout = function() {
-	      auth.logout();
-	      $window.location = '/'
-
-	    }
-
-	    $scope.reloadPage = function() {
-	      // $timeout(function() {
-	      //   $window.location.reload();
-	      // }, 200);
-	    };
-	  }]);
-	};
-
-
-/***/ },
-/* 3 */
 /***/ function(module, exports) {
 
 	/**
@@ -28580,7 +28468,7 @@
 	!window.angular.$$csp() && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	/**
@@ -33269,15 +33157,15 @@
 	})(window, window.angular);
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(6);
+	__webpack_require__(5);
 	module.exports = 'ngCookies';
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/**
@@ -33603,7 +33491,7 @@
 
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -33620,10 +33508,10 @@
 	(function (root, factory) {
 	  if (typeof module !== 'undefined' && module.exports) {
 	    // CommonJS
-	    module.exports = factory(__webpack_require__(8));
+	    module.exports = factory(__webpack_require__(7));
 	  } else if (true) {
 	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(7)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else {
 	    // Global Variables
 	    factory(root.angular);
@@ -34400,11 +34288,86 @@
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(3);
+	__webpack_require__(2);
 	module.exports = angular;
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.config(function($urlRouterProvider, $stateProvider, $locationProvider, $urlMatcherFactoryProvider) {
+
+	      // Treats URLs with and without trailing slashes identically
+	      // [Must remain above $stateProvideres below]
+	      $urlMatcherFactoryProvider.strictMode(false);
+
+	      // Append trailing slash to page path if otherwise missing
+	      $urlRouterProvider.rule(function($injector, $location) {
+
+	        var path = $location.path();
+	        var noTrailingSlash = path[path.length-1] !== '/';
+
+	        if(noTrailingSlash) {
+
+	          //if last charcter is not a slash, return the same url with the slash
+	          var newPath = path += '/';
+	          return newPath;
+	        }
+
+	      });
+
+	      // Define routes
+	      var mainState = {
+	        name: 'main',
+	        url: '/',
+	        templateUrl: '../../templates/views/main.html'
+	      };
+
+	      var aboutState = {
+	        name: 'about',
+	        url: '/about/',
+	        templateUrl: '../../templates/views/about.html'
+	      };
+
+	      var contactState = {
+	        name: 'contact',
+	        url: '/contact/',
+	        templateUrl: '../../templates/views/contact.html'
+	      };
+
+	      var signinState = {
+	        name: 'signin',
+	        url: '/signin/',
+	        templateUrl: '../../templates/views/signin.html'
+	      };
+
+	      var signupState = {
+	        name: 'signup',
+	        url: '/signup/',
+	        templateUrl: '../../templates/views/signup.html'
+	      };
+
+
+	      // Apply routes to stateProvider
+	      $stateProvider.state(mainState);
+	      $stateProvider.state(aboutState);
+	      $stateProvider.state(contactState);
+	      $stateProvider.state(signinState);
+	      $stateProvider.state(signupState);
+
+
+	      // Use the HTML5 History API to remove "#" from page path
+	      $locationProvider.html5Mode(true);
+
+	    });
+	  };
 
 
 /***/ },
@@ -34643,6 +34606,77 @@
 	'use strict';
 
 	module.exports = function(app) {
+	  app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
+
+	    if (auth.isSignedIn()) {
+	      // $window.location = '/'
+	    }
+	    $scope.errors = [];
+	    $scope.authSubmit = function(user) {
+	      if (user.email) { //was user.password_confirmation
+	        auth.create(user, function(data, err) {
+	          if (data.success) {
+	            $scope.errorMsg = null;
+	            $window.location = '/'
+	          }
+	          if (!data.success) {
+	            $scope.errorMsg = data.msg;
+	            // console.log('errorMsg: ' + $scope.errorMsg)
+	            return $scope.errorMsg;
+	          }
+	          if (err) {
+	            return $scope.errors.push({
+	              msg: 'could not create user'
+	            });
+	          }
+	        })
+	      }
+	    };
+
+	    $scope.login = function(user) {
+	        if (user.username) {
+	          auth.signIn(user, function(data, err) {
+	            if (data.success) {
+	              $scope.errorMsg = null;
+	              $window.location = '/'
+	            }
+	            if (!data.success) {
+	              $scope.errorMsg = "Invalid username or password";
+	              // console.log('errorMsg: ' + $scope.errorMsg)
+	              return $scope.errorMsg;
+	            }
+	            if (err) {
+	              return $scope.errors.push({
+	                msg: 'could not create user'
+	              });
+	            }
+
+	          });
+	        }
+	    };
+
+	    $scope.logout = function() {
+	      auth.logout();
+	      $window.location = '/'
+
+	    }
+
+	    $scope.reloadPage = function() {
+	      // $timeout(function() {
+	      //   $window.location.reload();
+	      // }, 200);
+	    };
+	  }]);
+	};
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
 	  app.directive('header', function() {
 	    return {
 	      restrict: 'AC',
@@ -34653,7 +34687,7 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34669,7 +34703,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34685,7 +34719,7 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34702,7 +34736,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34718,7 +34752,7 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34734,7 +34768,7 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34750,7 +34784,7 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -34795,7 +34829,7 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// 'use strict';
@@ -34820,7 +34854,7 @@
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
