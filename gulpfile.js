@@ -27,6 +27,11 @@ gulp.task('webpackdev:watch', function() {
   gulp.watch('./app/js/**/*.js', ['webpackdev']);
 });
 
+gulp.task('copyImg', function() {
+  return gulp.src('./app/img/*')
+    .pipe(gulp.dest('./public/img'));
+});
+
 gulp.task('copy', function() {
   var opts = {
     conditionals: true,
@@ -38,5 +43,5 @@ gulp.task('copy', function() {
 gulp.task("copy:watch", function() {
   gulp.watch("./app/**/*.html", ["copy"]);
 });
-gulp.task('build', ['copy', 'webpackdev', 'sass', 'copy:watch', 'webpackdev:watch', 'sass:watch']);
+gulp.task('build', ['copy', 'copyImg', 'webpackdev', 'sass', 'copy:watch', 'webpackdev:watch', 'sass:watch']);
 gulp.task('default', ['build']);
