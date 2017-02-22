@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 var Location = require(__dirname + '/../../models/Location.js');
 var jwt = require('jsonwebtoken');
-var config = require('../../config');
 
 module.exports = {
 

@@ -20,3 +20,8 @@ module.exports = function(router) {
   router.put('/instances/:instance/quit', verify, instancesInstanceController.quit)
 
 }
+
+// Run every 15 minutes to automatically mark past games as complete
+setInterval(function() {
+  instancesController.autoMarkComplete();
+}, 900000);

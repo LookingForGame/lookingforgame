@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 var User = require(__dirname + '/../../models/User.js');
 var jwt = require('jsonwebtoken');
-var config = require('../../config');
 
 module.exports = {
 

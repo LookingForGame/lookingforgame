@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var morgan = require('morgan');
-var config = require('./config')
 var port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.DATABASE);
@@ -34,13 +33,8 @@ app.use("/templates", express.static(__dirname + "/public/templates"));
 
 // Serve index.html for all remaining routes, in order to leave routing up to angular
 app.all("/*", function(req, res, next) {
-    res.sendfile("index.html", { root: __dirname + "/public" });
+    res.sendFile("index.html", { root: __dirname + "/public" });
 });
-
-// Every 15 minutes run autoMarkComplete
-setInterval(function() {
-  require('./mongoUtil').autoMarkComplete();
-}, 900000);
 
 app.listen(port, function() {
   console.log('Server listening on ' + port);

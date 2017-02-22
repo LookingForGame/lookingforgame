@@ -1,8 +1,6 @@
 var User = require('../models/User');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
-var config = require('../config');
-
 
 module.exports = function(router) {
 

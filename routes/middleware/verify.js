@@ -1,6 +1,4 @@
 var jwt = require('jsonwebtoken');
-var config = require('../../config')
-
 
 module.exports = function(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token']
