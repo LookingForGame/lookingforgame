@@ -19,11 +19,14 @@
     "Play"
   ],
   "author": "Jason Studstill <jason@jasonstudstill.com>",
-  "contributors": [{
-    "name": "Kristopher Skelton"
-  },{
-    "name": "Nick Kuhn"
-  }],
+  "contributors": [
+    {
+      "name": "Kristopher Skelton"
+    },
+    {
+      "name": "Nick Kuhn"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LookingForGame/lookingforgame/issues"
@@ -53,9 +56,9 @@
     "gulp-jshint": "1.11.2",
     "gulp-mocha": "2.1.3",
     "gulp-sass": "2.0.4",
+    "gulp-uglify": "^2.0.1",
     "gulp-webpack": "1.5.0",
     "jshint-stylish": "2.0.1",
-    "mocha": "2.2.5",
-    "webpack": "1.10.5"
+    "mocha": "2.2.5"
   }
 }
