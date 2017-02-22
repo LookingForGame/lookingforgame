@@ -5,13 +5,13 @@ var webpack = require('gulp-webpack');
 var sass = require('gulp-sass');
 
 gulp.task('sass', function() {
-  gulp.src('./app/sass/**/*.scss')
+  gulp.src('./app/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('sass:watch', function() {
-  gulp.watch('./app/sass/**/*.scss', ['sass']);
+  gulp.watch('./app/styles/**/*.scss', ['sass']);
 });
 
 gulp.task('webpackdev', function() {

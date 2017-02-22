@@ -46,21 +46,20 @@
 
 	__webpack_require__(1);
 	__webpack_require__(8);
-	__webpack_require__(11);
-	__webpack_require__(10);
-	__webpack_require__(9);
 	__webpack_require__(21);
 	__webpack_require__(13);
 	__webpack_require__(12);
 	__webpack_require__(22);
-	__webpack_require__(23);
 	__webpack_require__(18);
 	__webpack_require__(20);
 	__webpack_require__(16);
 	__webpack_require__(14);
 	__webpack_require__(15);
 	__webpack_require__(17);
-	module.exports = __webpack_require__(19);
+	__webpack_require__(19);
+	__webpack_require__(11);
+	__webpack_require__(10);
+	module.exports = __webpack_require__(9);
 
 
 /***/ },
@@ -34327,31 +34326,31 @@
 	      var mainState = {
 	        name: 'main',
 	        url: '/',
-	        templateUrl: '../../templates/views/main.html'
+	        templateUrl: '../views/main.html'
 	      };
 
 	      var aboutState = {
 	        name: 'about',
 	        url: '/about/',
-	        templateUrl: '../../templates/views/about.html'
+	        templateUrl: '../views/about.html'
 	      };
 
 	      var contactState = {
 	        name: 'contact',
 	        url: '/contact/',
-	        templateUrl: '../../templates/views/contact.html'
+	        templateUrl: '../views/contact.html'
 	      };
 
 	      var signinState = {
 	        name: 'signin',
 	        url: '/signin/',
-	        templateUrl: '../../templates/views/signin.html'
+	        templateUrl: '../views/signin.html'
 	      };
 
 	      var signupState = {
 	        name: 'signup',
 	        url: '/signup/',
-	        templateUrl: '../../templates/views/signup.html'
+	        templateUrl: '../views/signup.html'
 	      };
 
 
@@ -34680,7 +34679,7 @@
 	  app.directive('header', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/header.html'
+	      templateUrl: '../views/components/header.html'
 	    };
 	  });
 	};
@@ -34696,7 +34695,7 @@
 	  app.directive('main', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/main.html'
+	      templateUrl: '../views/main.html'
 	    }
 	  });
 	};
@@ -34712,7 +34711,7 @@
 	  app.directive('footer', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/footer.html'
+	      templateUrl: '../views/components/footer.html'
 	    }
 	  });
 	};
@@ -34728,7 +34727,7 @@
 		app.directive('newInstance', function(){
 			return {
 				restrict: 'AC',
-				templateUrl: '../../../templates/settings/directives/new_instance_template.html',
+				templateUrl: '../views/components/new_instance_template.html',
 				replace: true
 			}
 		});
@@ -34745,7 +34744,7 @@
 	  app.directive('createUser', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/sub_views/create_user.html'
+	      templateUrl: '../views/components/create_user.html'
 	    }
 	  });
 	};
@@ -34761,7 +34760,7 @@
 	  app.directive('signIn', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/sub_views/sign_in.html'
+	      templateUrl: '../views/sign_in.html'
 	    };
 	  });
 	};
@@ -34777,7 +34776,7 @@
 	  app.directive('currentGames', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: './templates/views/sub_views/current_games.html'
+	      templateUrl: '../views/components/current_games.html'
 	    }
 	  });
 	};
@@ -34830,31 +34829,6 @@
 
 /***/ },
 /* 22 */
-/***/ function(module, exports) {
-
-	// 'use strict';
-
-	// module.exports = function(app) {
-	//   app.config(function($stateProvider) {
-	//   var helloState = {
-	//     name: 'about',
-	//     url: '/about',
-	//     template: '../../../about.html'
-	//   };
-
-	//   var aboutState = {
-	//     name: 'contact',
-	//     url: '/contact',
-	//     template: '../../../contact.html'
-	//   };
-
-	//   $stateProvider.state(aboutState);
-	//   $stateProvider.state(contactState);
-	// });
-
-
-/***/ },
-/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';

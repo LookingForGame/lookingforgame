@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(app) {
-  app.directive('main', function() {
+  app.directive('footer', function() {
     return {
       restrict: 'AC',
-      templateUrl: './templates/views/main.html'
+      templateUrl: '../views/components/footer.html'
     }
   });
 };

@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.directive('createUser', function() {
     return {
       restrict: 'AC',
-      templateUrl: './templates/views/sub_views/create_user.html'
+      templateUrl: '../views/components/create_user.html'
     }
   });
 };

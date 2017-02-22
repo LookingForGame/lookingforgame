@@ -26,31 +26,31 @@ module.exports = function(app) {
       var mainState = {
         name: 'main',
         url: '/',
-        templateUrl: '../../templates/views/main.html'
+        templateUrl: '../views/main.html'
       };
 
       var aboutState = {
         name: 'about',
         url: '/about/',
-        templateUrl: '../../templates/views/about.html'
+        templateUrl: '../views/about.html'
       };
 
       var contactState = {
         name: 'contact',
         url: '/contact/',
-        templateUrl: '../../templates/views/contact.html'
+        templateUrl: '../views/contact.html'
       };
 
       var signinState = {
         name: 'signin',
         url: '/signin/',
-        templateUrl: '../../templates/views/signin.html'
+        templateUrl: '../views/signin.html'
       };
 
       var signupState = {
         name: 'signup',
         url: '/signup/',
-        templateUrl: '../../templates/views/signup.html'
+        templateUrl: '../views/signup.html'
       };
 
 

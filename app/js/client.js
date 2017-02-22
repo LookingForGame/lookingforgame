@@ -12,18 +12,18 @@ require('./router.js')(gameApp);
 
 // Services
 require('./services/resourceServices.js')(gameApp);
-require('./services/copy')(gameApp);
-require('./services/auth')(gameApp);
+require('./services/copy.js')(gameApp);
+require('./services/auth.js')(gameApp);
 
 // Controllers
-require('./settings/controllers/instancesController.js')(gameApp);
-require('./settings/controllers/authController.js')(gameApp);
+require('./controllers/instancesController.js')(gameApp);
+require('./controllers/authController.js')(gameApp);
 
 // Directives
-require('./settings/directives/header_directive.js')(gameApp);
-require('./settings/directives/main_directive.js')(gameApp);
-require('./settings/directives/footer_directive.js')(gameApp);
-require('./settings/directives/new_instance_directive.js')(gameApp);
-require('./settings/directives/create_user_directive.js')(gameApp);
-require('./settings/directives/sign_in_directive.js')(gameApp);
-require('./settings/directives/current_games_directive.js')(gameApp);
+require('./directives/header_directive.js')(gameApp);
+require('./directives/main_directive.js')(gameApp);
+require('./directives/footer_directive.js')(gameApp);
+require('./directives/new_instance_directive.js')(gameApp);
+require('./directives/create_user_directive.js')(gameApp);
+require('./directives/sign_in_directive.js')(gameApp);
+require('./directives/current_games_directive.js')(gameApp);

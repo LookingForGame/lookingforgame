@@ -1,6 +1,6 @@
 {
   "name": "looking-for-game",
-  "version": "0.8.91",
+  "version": "2.0.0",
   "description": "Find, host, and play table top games",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/studstill/joshua-game-finder.git"
+    "url": "git+https://github.com/LookingForGame/lookingforgame.git"
   },
   "keywords": [
     "Games",
@@ -18,12 +18,17 @@
     "Meetup",
     "Play"
   ],
-  "author": "Nick Kuhn, Kristopher Skelton, Jason Studstill",
+  "author": "Jason Studstill <jason@jasonstudstill.com>",
+  "contributors": [{
+    "name": "Kristopher Skelton"
+  },{
+    "name": "Nick Kuhn"
+  }],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/studstill/joshua-game-finder/issues"
+    "url": "https://github.com/LookingForGame/lookingforgame/issues"
   },
-  "homepage": "https://github.com/studstill/joshua-game-finder#readme",
+  "homepage": "https://github.com/LookingForGame/lookingforgame#readme",
   "dependencies": {
     "angucomplete-alt": "1.1.0",
     "angular": "1.4.3",
