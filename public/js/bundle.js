@@ -54,9 +54,9 @@
 	__webpack_require__(20);
 	__webpack_require__(16);
 	__webpack_require__(14);
+	__webpack_require__(19);
 	__webpack_require__(15);
 	__webpack_require__(17);
-	__webpack_require__(19);
 	__webpack_require__(11);
 	__webpack_require__(10);
 	module.exports = __webpack_require__(9);
@@ -34326,7 +34326,8 @@
 	      var mainState = {
 	        name: 'main',
 	        url: '/',
-	        templateUrl: '../views/main.html'
+	        templateUrl: '../views/main.html',
+	        controllerAs: 'main'
 	      };
 
 	      var aboutState = {
@@ -34341,10 +34342,10 @@
 	        templateUrl: '../views/contact.html'
 	      };
 
-	      var signinState = {
-	        name: 'signin',
-	        url: '/signin/',
-	        templateUrl: '../views/signin.html'
+	      var loginState = {
+	        name: 'login',
+	        url: '/login/',
+	        templateUrl: '../views/login.html'
 	      };
 
 	      var signupState = {
@@ -34353,12 +34354,11 @@
 	        templateUrl: '../views/signup.html'
 	      };
 
-
 	      // Apply routes to stateProvider
 	      $stateProvider.state(mainState);
 	      $stateProvider.state(aboutState);
 	      $stateProvider.state(contactState);
-	      $stateProvider.state(signinState);
+	      $stateProvider.state(loginState);
 	      $stateProvider.state(signupState);
 
 
@@ -34757,10 +34757,10 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.directive('signIn', function() {
+	  app.directive('login', function() {
 	    return {
 	      restrict: 'AC',
-	      templateUrl: '../views/sign_in.html'
+	      templateUrl: '../views/login.html'
 	    };
 	  });
 	};

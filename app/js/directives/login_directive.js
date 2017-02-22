@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(app) {
-  app.directive('signIn', function() {
+  app.directive('login', function() {
     return {
       restrict: 'AC',
-      templateUrl: '../views/sign_in.html'
+      templateUrl: '../views/login.html'
     };
   });
 };

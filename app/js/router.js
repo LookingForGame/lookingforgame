@@ -26,7 +26,8 @@ module.exports = function(app) {
       var mainState = {
         name: 'main',
         url: '/',
-        templateUrl: '../views/main.html'
+        templateUrl: '../views/main.html',
+        controllerAs: 'main'
       };
 
       var aboutState = {
@@ -41,10 +42,10 @@ module.exports = function(app) {
         templateUrl: '../views/contact.html'
       };
 
-      var signinState = {
-        name: 'signin',
-        url: '/signin/',
-        templateUrl: '../views/signin.html'
+      var loginState = {
+        name: 'login',
+        url: '/login/',
+        templateUrl: '../views/login.html'
       };
 
       var signupState = {
@@ -53,12 +54,11 @@ module.exports = function(app) {
         templateUrl: '../views/signup.html'
       };
 
-
       // Apply routes to stateProvider
       $stateProvider.state(mainState);
       $stateProvider.state(aboutState);
       $stateProvider.state(contactState);
-      $stateProvider.state(signinState);
+      $stateProvider.state(loginState);
       $stateProvider.state(signupState);
 
 

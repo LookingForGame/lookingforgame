@@ -25,5 +25,5 @@ require('./directives/main_directive.js')(gameApp);
 require('./directives/footer_directive.js')(gameApp);
 require('./directives/new_instance_directive.js')(gameApp);
 require('./directives/create_user_directive.js')(gameApp);
-require('./directives/sign_in_directive.js')(gameApp);
+require('./directives/login_directive.js')(gameApp);
 require('./directives/current_games_directive.js')(gameApp);

@@ -1,6 +1,5 @@
-<!-- Full Width Image Header -->
-<main>
-    <header class="header-image" ng-hide="userId">
+<section ui-view="main">
+    <div class="header-image" ng-hide="userId">
         <div class="headline">
             <div class="container">
                 <h2>Join a game near you</h2>
@@ -8,9 +7,9 @@
                 <a ui-sref="signup"><button name="signup" class="btn btn-primary btn-xl">Sign Up And Play</button></a>
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- /.container -->
     <section data-new-instance></section>
     <section data-current-games></section>
-</main>
+</section>
