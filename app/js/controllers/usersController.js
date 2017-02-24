@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-	app.controller('usersController', ['$scope', 'resource', function($scope, resource) {
+	app.controller('usersController', ['$rootScope', '$scope', 'resource', function($scope, resource) {
 
 		var User = resource('users');
 

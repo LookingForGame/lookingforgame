@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('authController', ['$scope', '$location', '$window', '$timeout', 'auth', function($scope, $location, $window, $timeout, auth) {
+  app.controller('authController', ['$rootScope', '$scope', '$location', '$window', '$timeout', 'auth', function($rootScope, $scope, $location, $window, $timeout, auth) {
 
     if (auth.isSignedIn()) {
       // $window.location = '/'

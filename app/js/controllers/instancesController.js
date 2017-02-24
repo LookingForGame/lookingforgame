@@ -1,29 +1,40 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('instancesController', ['$scope', '$http', '$cookies','$window', function($scope, $http, $cookies, $window) {
+  app.controller('instancesController', ['$rootScope','$scope', '$http', '$cookies','$window', function($rootScope, $scope, $http, $cookies, $window) {
+
+    // Check for token
     var jwt = $cookies.get('jwt');
     $http.defaults.headers.common['x-access-token'] = jwt;
-    var getAll = function() {
+
+    window.instancesLoaded = false;
+
+    // If token present, get all instances
+    if (!$rootScope.instancesLoaded && jwt){
+      window.instancesLoaded = true;
+      getAll();
+    }
+
+    function getAll() {
       $http.get('/api/instances').success(function(response) {
         // In the response, we are sending all of the data for the user that is
         // currently logged in.
-        $scope.instances = response.data;
-        $scope.userId = response.userId;
-        $scope.isCommitted = response.isCommitted;
-        $scope.hosting = response.hosting;
-        $scope.userName = response.userName;
-        $scope.showDetail = false;
-        console.log('$scope.instances is below:');
-        console.log($scope.instances);
+
+          $rootScope.instances = response.data;
+          $rootScope.userId = response.userId;
+          $rootScope.isCommitted = response.isCommitted;
+          $rootScope.hosting = response.hosting;
+          $rootScope.userName = response.userName;
+          $rootScope.showDetail = false;
+          console.log('instances below');
+          console.log($scope.instances);
+
       });
       $http.get('/api/locations').success(function(response) {
         $scope.locations = response.data;
       });
     };
-    if (jwt){
-      getAll();
-    }
+
     $scope.findId = function(instance) {
       var users = [];
       instance.participants.forEach(function(participant) {
@@ -56,11 +67,12 @@ module.exports = function(app) {
       instance.formattedStartTime = formatHour(time);
 
       $http.post('/api/instances/', instance).success(function(response) {
-        $http.get('/api/instances').success(function(response) {
-          $scope.instances = response.data;
-          // TODO - Update Scope dynamically
-          $window.location.reload();
-        });
+
+        //clear form and reset instance
+        $scope.newInstanceForm.$setPristine();
+        $scope.instance = {};
+
+        getAll();
       });
     };
 
@@ -88,9 +100,7 @@ module.exports = function(app) {
       instance.editing = false;
       getAll();
     };
-    $scope.reloadPage = function() {
-      $window.location.reload();
-    };
+
     $scope.join = function(id){
       $http.put('/api/instances/' + id + "/join");
     };
@@ -100,6 +110,8 @@ module.exports = function(app) {
     $scope.gameOver = function(id){
       $http.put('/api/instances/' + id, {
         gameOver: true
+      }).success(function () {
+        getAll();
       });
     };
   }]);

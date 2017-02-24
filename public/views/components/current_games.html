@@ -26,12 +26,12 @@
                     <p>
                       <a ng-hide="gameOver || userId==instance.creator" href="#" class="btn btn-primary" ng-disabled="{{instance.gameOver}}">Join Game</a>
                       <a ng-show="instance.gameOver" href="#" class="btn btn-primary" ng-disabled="{{instance.gameOver}}">Game Has Ended</a>
-                        <!-- <button class="btn-caution" type="submit" data-ng-click="edit(instance); reloadPage()">Edit</button> -->
-                      <button ng-show="userId === instance.creator" class="btn btn-primary" data-ng-click="destroy(instance._id); reloadPage()">Remove Game</button>
-                      <button ng-hide="instance.gameOver || userId!==instance.creator" class="btn btn-default game-over" ng-show="!instance.gameOver" data-ng-click="gameOver(instance._id); reloadPage()">Mark Game Complete</button>
+                        <!-- <button class="btn-caution" type="submit" data-ng-click="edit(instance)">Edit</button> -->
+                      <button ng-show="userId === instance.creator" class="btn btn-primary" data-ng-click="destroy(instance._id)">Remove Game</button>
+                      <button ng-hide="instance.gameOver || userId!==instance.creator" class="btn btn-default game-over" ng-show="!instance.gameOver" data-ng-click="gameOver(instance._id)">Mark Game Complete</button>
                       <span ng-show="userId !== instance.creator && hosting === false && instance.gameOver === false">
-                          <button class="btn btn-primary join-game" type="submit" ng-show="isCommitted===false && instance.participants.length < instance.playersNeeded" data-ng-click="join(instance._id); reloadPage()">Join This Game</button>
-                          <button class="btn btn-primary btn-warning leave-game" type="submit" ng-show="isCommitted===true && findId(instance).indexOf(userId)!=-1" data-ng-click="quit(instance._id); reloadPage()">Leave this game</button>
+                          <button class="btn btn-primary join-game" type="submit" ng-show="isCommitted===false && instance.participants.length < instance.playersNeeded" data-ng-click="join(instance._id)">Join This Game</button>
+                          <button class="btn btn-primary btn-warning leave-game" type="submit" ng-show="isCommitted===true && findId(instance).indexOf(userId)!=-1" data-ng-click="quit(instance._id)">Leave this game</button>
                       </span>
                       <a href="#" class="btn btn-default" ng-click="showDetail = !showDetail">More Info</a>
                     </p>
