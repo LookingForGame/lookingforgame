@@ -6,13 +6,14 @@ module.exports = function(app) {
     if (auth.isSignedIn()) {
       // $window.location = '/'
     }
-    $scope.errors = [];
+
     $scope.authSubmit = function(user) {
       if (user.email) { //was user.password_confirmation
         auth.create(user, function(data, err) {
           if (data.success) {
             $scope.errorMsg = null;
-            $window.location = '/'
+            $window.location = '/';
+            console.log('User successfully created');
           }
           if (!data.success) {
             $scope.errorMsg = data.msg;
@@ -24,8 +25,12 @@ module.exports = function(app) {
               msg: 'could not create user'
             });
           }
-        })
+        });
       }
+
+      // Clean form and user info
+      $scope.signupForm.$setPristine();
+      $scope.user = {};
     };
 
     $scope.login = function(user) {
@@ -33,7 +38,7 @@ module.exports = function(app) {
           auth.signIn(user, function(data, err) {
             if (data.success) {
               $scope.errorMsg = null;
-              $window.location = '/'
+              $location.path('/');
             }
             if (!data.success) {
               $scope.errorMsg = "Invalid username or password";
@@ -48,18 +53,16 @@ module.exports = function(app) {
 
           });
         }
+
+      // Clean form and user info
+      $scope.loginForm.$setPristine();
+      $scope.user = {};
     };
 
     $scope.logout = function() {
       auth.logout();
-      $window.location = '/'
-
-    }
-
-    $scope.reloadPage = function() {
-      // $timeout(function() {
-      //   $window.location.reload();
-      // }, 200);
+      $window.location = '/';
     };
+
   }]);
 };
