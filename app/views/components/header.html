@@ -1,6 +1,6 @@
 <!-- Navigation -->
-<!-- TODO - Factor User ID out of Instances Controller into AuthController -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!-- user-fetching logic is currenty maintained in instancesController, so the instancesController is still in the header so the $rootScope variables are available everywhere -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="instancesController">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -22,7 +22,7 @@
                     <a ui-sref="contact">Contact</a>
                 </li>
                 <li ng-show="userId">
-                    <a href="#">{{userName}}</a>
+                    <a href="/account">{{userName}}</a>
                 </li>
                 <div class="navbar-form navbar-right" ng-hide="userId">
                     <label for="login" class="sr-only">login</label>

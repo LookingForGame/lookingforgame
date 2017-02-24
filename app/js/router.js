@@ -54,12 +54,19 @@ module.exports = function(app) {
         templateUrl: '../views/signup.html'
       };
 
+      var accountState = {
+        name: 'account',
+        url: '/account/:userId',
+        templateUrl: '../views/account.html'
+      };
+
       // Apply routes to stateProvider
       $stateProvider.state(mainState);
       $stateProvider.state(aboutState);
       $stateProvider.state(contactState);
       $stateProvider.state(loginState);
       $stateProvider.state(signupState);
+      $stateProvider.state(accountState);
 
 
       // Use the HTML5 History API to remove "#" from page path
