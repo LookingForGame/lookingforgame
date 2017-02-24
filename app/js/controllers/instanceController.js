@@ -1,13 +1,23 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('instanceController', ['$rootScope', '$scope', '$state', '$stateParams', '$location', '$window', '$timeout', 'auth', function($rootScope, $scope, $location, $state, $stateParams, $window, $timeout, auth) {
+  app.controller('instanceController', ['$rootScope', '$scope', '$state', '$stateParams', '$location', '$window', '$timeout', 'auth', '$http', function($rootScope, $scope, $location, $state, $stateParams, $window, $timeout, auth, $http) {
 
-    // TODO - Add Functionality
+    // Get Instance when controller loads
+    getInstance($state.instanceId);
 
-    // Log the URL params (e.g. i/{12345})
+    function getInstance(instanceId) {
+      $http.get('/api/instances/' + instanceId).success(function(response) {
+        // In the response, we are sending all of the data for the user that is
+        // currently logged in.
 
-    console.log('Instance _id: ', $state.instanceId);
+          $scope.instance = response.data;
+
+          console.log('instance below');
+          console.log($scope.instances);
+
+      });
+    }
 
   }]);
 };

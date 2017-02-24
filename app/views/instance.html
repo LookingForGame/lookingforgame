@@ -8,11 +8,11 @@
                 <img class="img-responsive" src="http://placehold.it/1000x400" alt="">
                 <div class="caption-full">
                     <h4 class="pull-right">$24.99</h4>
-                    <h4>Product Name</a>
+                    <h4>{{instance.game}}</a>
                     </h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p> -->
                 </div>
-                <div class="ratings">
+<!--                 <div class="ratings">
                     <p class="pull-right">3 reviews</p>
                     <p>
                         <span class="glyphicon glyphicon-star"></span>
@@ -23,6 +23,17 @@
                         4.0 stars
                     </p>
                 </div>
+ -->                <ul>
+                    <li>Game Host: {{instance.host}}</li>
+                    <li>Players Signed Up: {{ instance.signedUp || 0 }}</li>
+                    <li>Players Needed: {{ instance.playersNeeded }}</li>
+                    <li data-ng-repeat="participant in instance.participants">Users Signed Up: {{ participant.username }}</li>
+                    <li>Game: {{ instance.game }}</li>
+                    <li>Where: {{ instance.location }}</li>
+                    <li>Time: {{instance.formattedStartTime || instance.startTime}}</li>
+                    <li>Duration: {{instance.playTime}}</li>
+                    <li>Game Ended: {{instance.gameOver}}</li>
+                </ul>
             </div>
 
             <div class="well">
