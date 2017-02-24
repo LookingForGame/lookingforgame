@@ -60,6 +60,13 @@ module.exports = function(app) {
         templateUrl: '../views/account.html'
       };
 
+      var instanceState = {
+        name: 'instance',
+        url: '/i/:instanceId',
+        templateUrl: '../views/instance.html'
+      };
+
+
       // Apply routes to stateProvider
       $stateProvider.state(mainState);
       $stateProvider.state(aboutState);
@@ -67,6 +74,7 @@ module.exports = function(app) {
       $stateProvider.state(loginState);
       $stateProvider.state(signupState);
       $stateProvider.state(accountState);
+      $stateProvider.state(instanceState);
 
 
       // Use the HTML5 History API to remove "#" from page path
