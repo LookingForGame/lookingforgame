@@ -3,6 +3,8 @@
 module.exports = function(app) {
   app.controller('authController', ['$rootScope', '$scope', '$location', '$window', '$timeout', 'auth', function($rootScope, $scope, $location, $window, $timeout, auth) {
 
+    $scope.errors = $scope.errors || [];
+
     if (auth.isSignedIn()) {
       // $window.location = '/'
     }
@@ -17,10 +19,9 @@ module.exports = function(app) {
           }
           if (!data.success) {
             $scope.errorMsg = data.msg;
-            // console.log('errorMsg: ' + $scope.errorMsg)
             return $scope.errorMsg;
           }
-          if (err) {
+          if (err != '200') {
             return $scope.errors.push({
               msg: 'could not create user'
             });
@@ -42,10 +43,9 @@ module.exports = function(app) {
             }
             if (!data.success) {
               $scope.errorMsg = "Invalid username or password";
-              // console.log('errorMsg: ' + $scope.errorMsg)
               return $scope.errorMsg;
             }
-            if (err) {
+            if (err != '200') {
               return $scope.errors.push({
                 msg: 'could not create user'
               });
