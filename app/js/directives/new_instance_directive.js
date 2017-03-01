@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = function(app){
-	app.directive('instance', function(){
+	app.directive('newInstance', function(){
 		return {
 			restrict: 'AC',
-			templateUrl: '../views/components/instance.html',
+			templateUrl: '../views/components/new_instance_form.html',
 			replace: true
-		}
+		};
 	});
 };
