@@ -95,3 +95,9 @@ fieldset[disabled] .btn-xl.active {
   color: $button-text-color;
   background-color: $button-background-color;
 }
+
+.btn-primary-transparent {
+  @extend .btn-primary;
+  background-color: transparent;
+  border-color: transparent;
+}

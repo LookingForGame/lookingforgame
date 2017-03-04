@@ -188,7 +188,7 @@ footer {
     margin-bottom: 10px;
     margin-left: 0; } }
 
-.btn-primary {
+.btn-primary, .btn-primary-transparent {
   color: white;
   background-color: #FDB554;
   border-color: #f6bf01;
@@ -196,38 +196,55 @@ footer {
   text-transform: uppercase;
   font-weight: 700; }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:hover, .btn-primary-transparent:hover,
+.btn-primary:focus,
+.btn-primary-transparent:focus {
   color: white !important;
   background-color: #fdc06d !important;
   border-color: #fec912 !important; }
 
-.btn-primary:active,
+.btn-primary:active, .btn-primary-transparent:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary {
+.active.btn-primary-transparent,
+.open .dropdown-toggle.btn-primary,
+.open .dropdown-toggle.btn-primary-transparent {
   color: white !important;
   background-color: #fdaa3b !important;
   border-color: #ddab01 !important; }
 
-.btn-primary.disabled,
+.btn-primary.disabled, .disabled.btn-primary-transparent,
 .btn-primary[disabled],
+[disabled].btn-primary-transparent,
 fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-primary-transparent,
 .btn-primary.disabled:hover,
+.disabled.btn-primary-transparent:hover,
 .btn-primary[disabled]:hover,
+[disabled].btn-primary-transparent:hover,
 fieldset[disabled] .btn-primary:hover,
+fieldset[disabled] .btn-primary-transparent:hover,
 .btn-primary.disabled:focus,
+.disabled.btn-primary-transparent:focus,
 .btn-primary[disabled]:focus,
+[disabled].btn-primary-transparent:focus,
 fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary-transparent:focus,
 .btn-primary.disabled:active,
+.disabled.btn-primary-transparent:active,
 .btn-primary[disabled]:active,
+[disabled].btn-primary-transparent:active,
 fieldset[disabled] .btn-primary:active,
+fieldset[disabled] .btn-primary-transparent:active,
 .btn-primary.disabled.active,
+.disabled.active.btn-primary-transparent,
 .btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
+[disabled].active.btn-primary-transparent,
+fieldset[disabled] .btn-primary.active,
+fieldset[disabled] .active.btn-primary-transparent {
   background-color: #fdaa3b;
   border-color: #ddab01; }
 
-.btn-primary .badge {
+.btn-primary .badge, .btn-primary-transparent .badge {
   color: #FDB554;
   background-color: white; }
 
@@ -279,6 +296,10 @@ fieldset[disabled] .btn-xl.active {
 .btn-xl .badge {
   color: white;
   background-color: #FDB554; }
+
+.btn-primary-transparent {
+  background-color: transparent;
+  border-color: transparent; }
 
 .navbar-brand {
   font-family: Rhodium Libre; }
