@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('instancesController', ['$rootScope','$scope', '$http', '$cookies','$window', function($rootScope, $scope, $http, $cookies, $window) {
+  app.controller('instancesController', ['$rootScope','$scope', '$http', '$cookies','$window', '$state', function($rootScope, $scope, $http, $cookies, $window, $state) {
 
     // Check for token
     var jwt = $cookies.get('jwt');
@@ -73,6 +73,7 @@ module.exports = function(app) {
         $scope.instance = {};
 
         getAll();
+        $state.go("main");
       });
     };
 

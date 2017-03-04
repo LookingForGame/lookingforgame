@@ -1,15 +1,26 @@
 <div data-ng-controller="instancesController" ng-model="query" ng-show="userId">
   <div class="container">
     <div class="row-fluid">
-      <h3>Current Games</h3>
-      <label for="gameFilter">Arrange Games By </h4>
-      <select name="gameFilter" ng-model="queryBy">
-        <option value="host">Host</option>
-        <option value="game">Game</option>
-        <option value="location">Location</option>
-        <option value="gameOver">Game Status</option>
-        <option value="date">Recently Added</option>
-      </select>
+      <div ng-show="userId && isCommitted === false">
+        <a href="/addNewGame">
+        <button id="addNewGame" class="form-control btn btn-primary navbar-fixed-top">Add New Game</button></a>
+      </div>
+      <div ng-show="userId && isCommitted === false">
+        <a href="/addNewGame">Add New Game</a>
+      </div>
+      <div>
+        <h3>Current Games</h3>
+      </div>
+      <div>
+        <label for="gameFilter">Arrange Games By </h4>
+        <select name="gameFilter" ng-model="queryBy">
+          <option value="host">Host</option>
+          <option value="game">Game</option>
+          <option value="location">Location</option>
+          <option value="gameOver">Game Status</option>
+          <option value="date">Recently Added</option>
+        </select>
+      </div>
     </div>
   </div>
   <div>
