@@ -313,6 +313,13 @@ fieldset[disabled] .btn-xl.active {
 .addNewGame {
   margin-top: 75px; }
 
+input[type="date"] {
+  margin-bottom: 1em;
+  -webkit-min-logical-width: 95%; }
+
+input[type='date']:after {
+  content: attr(placeholder); }
+
 .instance-info {
   margin-top: 0; }
 
